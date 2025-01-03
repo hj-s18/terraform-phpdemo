@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git clone -b terraform https://github.com/uvelyster/cloud-demo.git
+git clone -b terraform https://github.com/hj-s18/cloud-demo.git
 mysql -u${db_username} -p${db_password} -h${db_url} ${db_name} < /cloud-demo/create_db_webtest.sql
 
 export DB_URL=${db_url}
