@@ -7,6 +7,8 @@ Amazon Linux2 AMI 사용하기 <br>
 
 ### MobaXterm에서 인스턴스로 접속하기
 
+생성한 EC2 인스턴스의 퍼블릭 IP 주소 이용해서 접속함
+
 <br>
 
 ### MySQL 설치
