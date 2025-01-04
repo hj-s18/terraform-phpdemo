@@ -1,6 +1,8 @@
-### RDS 서비스로 데이터베이스 구성
-provider.tf, db.tf 작성하기
+# RDS 서비스로 데이터베이스 구성
+### provider.tf, db.tf 작성하기
+
 <br>
+
 ### **terraform init** → **terraform apply**
 
 ```bash
