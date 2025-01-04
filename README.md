@@ -108,6 +108,8 @@ MySQL [webtest]> show tables;
 Empty set (0.00 sec)
 ```
 
+<br>
+
 ### table 생성하기
 
 ![image](https://github.com/user-attachments/assets/aca26b9b-f11a-48f8-892b-88a04a50e8fc)
