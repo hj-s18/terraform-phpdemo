@@ -140,9 +140,7 @@ Cloning into 'phpdemo'...
 
 [ec2-user@프라이빗IP ~]$ ls
 phpdemo
-```
- 
-```bash
+
 [ec2-user@프라이빗IP ~]$ cd phpdemo/
 
 [ec2-user@프라이빗IP phpdemo]$ ls
