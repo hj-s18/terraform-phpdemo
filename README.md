@@ -26,6 +26,8 @@ provider.tf, db.tf 작성하기
     commands will detect it and remind you to do so if necessary.
     ```
     
+<br>
+    
     ```bash
     [devops@ansible-controller phpdemo]$ ls -al
     total 20
@@ -36,6 +38,8 @@ provider.tf, db.tf 작성하기
     drwxr-xr-x.  3 devops devops   23 Jan  3 10:08 .terraform
     -rw-r--r--.  1 devops devops 1377 Jan  3 10:08 .terraform.lock.hcl
     ```
+
+<br>
     
     ```bash
     [devops@ansible-controller phpdemo]$ tfa
