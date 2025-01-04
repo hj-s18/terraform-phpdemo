@@ -142,8 +142,10 @@ phpdemo
  
 ```bash
 [ec2-user@퍼블릭IP주소 ~]$ cd phpdemo/
+
 [ec2-user@퍼블릭IP주소 phpdemo]$ ls
 create_db_webtest.sql
+
 [ec2-user@퍼블릭IP주소 phpdemo]$ cat create_db_webtest.sql
 create table items ( id int(11) not null auto_increment, title varchar(45) not null, description text, created datetime not null, primary key(id) );
 ```
