@@ -129,7 +129,9 @@ Dependency Installed:
   git-core.x86_64 0:2.40.1-1.amzn2.0.3    git-core-doc.noarch 0:2.40.1-1.amzn2.0.3    perl-Error.noarch 1:0.17020-2.amzn2    perl-Git.noarch 0:2.40.1-1.amzn2.0.3    perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2
 
 Complete!
+```
 
+```bash
 [ec2-user@퍼블릭IP주소 ~]$ git clone -b create-table https://github.com/hj-s18/phpdemo.git
 Cloning into 'phpdemo'...
 ...[생략]...
@@ -139,7 +141,7 @@ phpdemo
 ```
  
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ cd cloud-demo/
+[ec2-user@퍼블릭IP주소 ~]$ cd phpdemo/
 [ec2-user@퍼블릭IP주소 phpdemo]$ ls
 create_db_webtest.sql
 [ec2-user@퍼블릭IP주소 phpdemo]$ cat create_db_webtest.sql
@@ -148,6 +150,9 @@ create table items ( id int(11) not null auto_increment, title varchar(45) not n
  
 ```bash
 [ec2-user@퍼블릭IP주소 phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_db_webtest.sql
+```
+ 
+```
 [ec2-user@퍼블릭IP주소 phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
