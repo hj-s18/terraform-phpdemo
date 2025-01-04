@@ -1,5 +1,7 @@
 # RDS 서비스로 데이터베이스 구성
 ### provider.tf, db.tf 작성하기
+
+<br>
  
 ### **terraform init** → **terraform apply**
 
@@ -50,6 +52,8 @@ address = "terraform-mysql[생략].us-east-2.rds.amazonaws.com"
 endpoint = "terraform-mysql[생략].us-east-2.rds.amazonaws.com:3306"
 port = 3306
 ```
+
+<br>
 
 ### 콘솔에서 만들어진 RDS 확인하기
 ![image](https://github.com/user-attachments/assets/d4980dc2-8576-4b68-a079-a0d0759bd294)
