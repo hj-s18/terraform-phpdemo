@@ -76,7 +76,7 @@ Authenticating with public key "Imported-Openssh-Key"
     │                 • MobaXterm Personal Edition v24.3 •                 │
     │               (SSH client, X server and network tools)               │
     │                                                                      │
-    │ ⮞ SSH session to ec2-user@생성된_인스턴스_퍼블릭IP                   │
+    │ ⮞ SSH session to ec2-user@생성된_인스턴스의_퍼블릭IP                 │
     │   • Direct SSH      :  ✓                                             │
     │   • SSH compression :  ✓                                             │
     │   • SSH-browser     :  ✓                                             │
