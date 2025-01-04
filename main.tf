@@ -22,6 +22,7 @@ resource "aws_instance" "phpapp" {                                  # AWS에서 
 resource "aws_security_group" "instance" {                          # VPC의 보안 그룹 생성 (instance : 이 리소스의 내부 참조 이름)
   name = "phpapp-sg"                                                # 보안 그룹의 이름 지정
 
+
   ingress {                                                         # Ingress Rules : 들어오는 트래픽 허용 규칙
     from_port   = 22                                                # 22번 포트 허용 (SSH 트래픽)
     to_port     = 22
@@ -34,12 +35,14 @@ resource "aws_security_group" "instance" {                          # VPC의 보
     protocol    = "tcp"                                             # TCP 프로토콜 허용
     cidr_blocks = ["0.0.0.0/0"]                                     # 모든 IP에서 접근 허용
   }
+
   egress {                                                          # Egress Rules : 나가는 트래픽 허용 규칙
     from_port   = 0                                                 # 모든 포트 허용
     to_port     = 0
     protocol    = "-1"                                              # 모든 프로토콜 허용
     cidr_blocks = ["0.0.0.0/0"]                                     # 모든 IP를 대상으로 트래픽 허용
   }
+
 }
 
 output "testip" {                                                   # EC2 인스턴스의 Public IP 출력
