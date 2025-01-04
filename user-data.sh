@@ -11,7 +11,7 @@ mysql -u${db_username} -p${db_password} -h${db_url} ${db_name} < /phpdemo/create
                                                                                                       # < 파일경로 : MySQL에 실행할 SQL 스크립트 파일 경로 지정
 
 
-/*
+:<<'END'
 # Terraform 코드에서 user_data 속성이 templatefile 함수로 설정되어있음
 
 resource "aws_instance" "phpapp" {
@@ -29,4 +29,4 @@ resource "aws_instance" "phpapp" {
 
   user_data_replace_on_change = true
 }
-*/
+END
