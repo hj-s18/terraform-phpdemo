@@ -194,7 +194,9 @@ Dependency Installed:
   git-core.x86_64 0:2.40.1-1.amzn2.0.3    git-core-doc.noarch 0:2.40.1-1.amzn2.0.3    perl-Error.noarch 1:0.17020-2.amzn2    perl-Git.noarch 0:2.40.1-1.amzn2.0.3    perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2
 
 Complete!
+```
 
+```bash
 [ec2-user@퍼블릭IP주소 ~]$ sudo yum install mysql
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 ...[생략]...
@@ -202,7 +204,9 @@ Installed:
   mariadb.x86_64 1:5.5.68-1.amzn2.0.1
 
 Complete!
+```
 
+```bash
 [ec2-user@퍼블릭IP주소 ~]$ sudo amazon-linux-extras install epel
 Installing epel-release
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
