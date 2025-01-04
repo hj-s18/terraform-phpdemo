@@ -5,7 +5,7 @@
 2. MobaXterm 으로 접속해서 mysql, git 설치
 
     ```bash
-    [ec2-user@퍼블릭IP주소 ~]$ sudo yum install git
+    [ec2-user@프라이빗IP ~]$ sudo yum install git
     Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
     ...[생략]...
     Installed:
@@ -18,7 +18,7 @@
     ```
     
     ```bash
-    [ec2-user@퍼블릭IP주소 ~]$ sudo yum install mysql
+    [ec2-user@프라이빗IP ~]$ sudo yum install mysql
     Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
     ...[생략]...
     Installed:
@@ -28,7 +28,7 @@
     ```
     
     ```bash
-    [ec2-user@퍼블릭IP주소 ~]$ sudo amazon-linux-extras install epel
+    [ec2-user@프라이빗IP ~]$ sudo amazon-linux-extras install epel
     Installing epel-release
     Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
     ...[생략]...
