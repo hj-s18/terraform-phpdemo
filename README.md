@@ -63,8 +63,43 @@ Outputs:
 address = "terraform-mysql[생략].us-east-2.rds.amazonaws.com"
 endpoint = "terraform-mysql[생략].us-east-2.rds.amazonaws.com:3306"
 port = 3306
-testip = "3.141.12.192"
+testip = "생성된_EC2_인스턴스의_퍼블릭_IP"
 ```
 
-### 웹페이지 잘 뜸
+<br>
+
+### 생성된 EC2 인스턴스로 접속해서 table 잘 만들어졌는지 확인하기
+ 
+```bash
+Authenticating with public key "Imported-Openssh-Key"
+    ┌──────────────────────────────────────────────────────────────────────┐
+    │                 • MobaXterm Personal Edition v24.3 •                 │
+    │               (SSH client, X server and network tools)               │
+    │                                                                      │
+    │ ⮞ SSH session to ec2-user@생성된_인스턴스_퍼블릭IP                   │
+    │   • Direct SSH      :  ✓                                             │
+    │   • SSH compression :  ✓                                             │
+    │   • SSH-browser     :  ✓                                             │
+    │   • X11-forwarding  :  ✗  (disabled or not supported by server)      │
+    │                                                                      │
+    │ ⮞ For more info, ctrl+click on help or visit our website.            │
+    └──────────────────────────────────────────────────────────────────────┘
+
+[ec2-user@프라이빗IP ~]$ cd /
+[ec2-user@프라이빗IP /]$ ls
+bin  boot  phpdemo  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+[ec2-user@프라이빗IP /]$ mysql -utestuser -ptestpass -hterraform-mysql[생략].us-east-2.rds.amazonaws.com webtest
+
+MySQL [webtest]> show tables;
++-------------------+
+| Tables_in_webtest |
++-------------------+
+| items             |
++-------------------+
+1 row in set (0.01 sec)
+```
+ 
+<br>
+
+### 웹페이지는 아직 Apache 기본 페이지 뜸
 ![image](https://github.com/user-attachments/assets/9a8180f5-25ce-4754-bffd-0b9548e18216)
