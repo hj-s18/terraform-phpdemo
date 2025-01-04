@@ -9,7 +9,7 @@ resource "aws_db_instance" "phpdb" {                # AWS 의 RDS(Relational Dat
   skip_final_snapshot = true                        # true : 데이터베이스 삭제 시 최종 백업(snapshot)을 건너뜀
   db_name             = var.db_name                 # 데이터베이스 이름 지정 : 값은 변수 var.db_name에서 가져옴
   username            = var.db_username             # 데이터베이스 사용자 이름 : var.db_username 변수로 정의된 값 사용
-  password            = var.db_password             # 데이터베이스 비밀번호 : var.db_username 변수로 정의된 값 사용
+  password            = var.db_password             # 데이터베이스 비밀번호 : var.db_password 변수로 정의된 값 사용
 }
 
 
