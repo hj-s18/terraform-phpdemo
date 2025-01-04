@@ -26,7 +26,25 @@ Complete!
 ```
 
 <br>
+ 
+### epel repository 설치
 
+Amazon Linux 추가 패키지 관리 도구 사용해서 Amazon Linux 2 에서 더 적합한 명령어로 설치함 <br>
+EPEL 패키지 직접 설치해도 됨 : **yum install epel-release -y**
+
+```bash
+[ec2-user@프라이빗IP ~]$ sudo amazon-linux-extras install epel
+Installing epel-release
+...[생략]...
+Installed:
+  epel-release.noarch 0:7-11
+
+Complete!
+...[생략]...
+```
+
+<br>
+ 
 ### RDS로 접속 시도 → 실패
 
 mysql -u<데이터베이스 사용자 이름> -p<데이터베이스 비밀번호> -h<데이터베이스 엔드포인트> -P<포트> <데이터베이스 이름>
@@ -43,31 +61,13 @@ ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인�
 ```bash
 [devops@ansible-controller phpdemo]$ terraform output endpoint
 "terraform-mysql20250103011832219800000001.c0k8gjmf4fb9.us-east-2.rds.amazonaws.com:3306"
+
 [devops@ansible-controller phpdemo]$ terraform output address
 "terraform-mysql20250103011832219800000001.c0k8gjmf4fb9.us-east-2.rds.amazonaws.com"
 ```
 
 <br>
-
-### epel repository 설치
-
-Amazon Linux 추가 패키지 관리 도구 사용해서 Amazon Linux 2 에서 더 적합한 명령어로 설치함
-
-EPEL 패키지 직접 설치해도 됨 : **yum install epel-release -y**
-
-```bash
-[ec2-user@프라이빗IP ~]$ sudo amazon-linux-extras install epel
-Installing epel-release
-...[생략]...
-Installed:
-  epel-release.noarch 0:7-11
-
-Complete!
-...[생략]...
-```
-
-<br>
-
+ 
 ### RDS로 접속 시도 → 실패
 
 ```bash
