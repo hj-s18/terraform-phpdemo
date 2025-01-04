@@ -5,12 +5,6 @@ Amazon Linux2 AMI 사용하기
 
 <br>
 
-### 만들어진 EC2 인스턴스 확인
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/b431f9b7-b2ee-44cb-804b-7b38b2a85a9f/3c8e6102-ccca-4c18-8e93-94660044ac29.png)
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/96b083e7-dae9-45a9-9f89-81228ac6cfc7/b48af7fe-8518-40ce-9b79-08eb65b95d24.png)
-
-<br>
-
 ### MobaXterm에서 인스턴스로 접속하기
 
 <br>
@@ -18,12 +12,12 @@ Amazon Linux2 AMI 사용하기
 ### MySQL 설치
 
 ```bash
-**[ec2-user@퍼블릭IP주소 ~]$ sudo yum update**
+[ec2-user@퍼블릭IP주소 ~]$ sudo yum update
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 amzn2-core                                                                               | 3.6 kB  00:00:00
 No packages marked for update
 
-**[ec2-user@퍼블릭IP주소 ~]$ sudo yum install mysql**
+[ec2-user@퍼블릭IP주소 ~]$ sudo yum install mysql
 ...[생략]...
 Installed:
   mariadb.x86_64 1:5.5.68-1.amzn2.0.1
@@ -38,7 +32,7 @@ Complete!
 mysql -u<데이터베이스 사용자 이름> -p<데이터베이스 비밀번호> -h<데이터베이스 엔드포인트> -P<포트> <데이터베이스 이름>
 
 ```bash
-**[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest**
+[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 ERROR 2005 (HY000): Unknown MySQL server host '**<데이터베이스 엔드포인트>:3306**' (2)
 ```
 
@@ -47,9 +41,9 @@ ERROR 2005 (HY000): Unknown MySQL server host '**<데이터베이스 엔드포�
 ### 참고 : 데이터베이스 엔드포인트 확인하기
 
 ```bash
-**[devops@ansible-controller phpdemo]$ terraform output endpoint**
+[devops@ansible-controller phpdemo]$ terraform output endpoint
 "terraform-mysql20250103011832219800000001.c0k8gjmf4fb9.us-east-2.rds.amazonaws.com:3306"
-**[devops@ansible-controller phpdemo]$ terraform output address**
+[devops@ansible-controller phpdemo]$ terraform output address
 "terraform-mysql20250103011832219800000001.c0k8gjmf4fb9.us-east-2.rds.amazonaws.com"
 ```
 
@@ -62,7 +56,7 @@ Amazon Linux 추가 패키지 관리 도구 사용해서 Amazon Linux 2 에서 �
 EPEL 패키지 직접 설치해도 됨 : **yum install epel-release -y**
 
 ```bash
-**[ec2-user@퍼블릭IP주소 cloud-demo]$ sudo amazon-linux-extras install epel**
+[ec2-user@퍼블릭IP주소 cloud-demo]$ sudo amazon-linux-extras install epel
 Installing epel-release
 ...[생략]...
 Installed:
@@ -77,8 +71,8 @@ Complete!
 ### RDS로 접속 시도 → 실패
 
 ```bash
-**[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest**
-ERROR 2005 (HY000): Unknown MySQL server host '**<데이터베이스 엔드포인트>:3306**' (2)
+[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
+ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인트>:3306' (2)
 ```
 
 <br>
@@ -95,11 +89,11 @@ ERROR 2005 (HY000): Unknown MySQL server host '**<데이터베이스 엔드포�
 ### RDS로 접속 → webtest 라는 데이터베이스 생성되어있는 것 확인
  
 ```bash
-**[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest**
+[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 Welcome to the MariaDB monitor.
 ...[생략]...
 
-**MySQL [webtest]> show databases;**
+MySQL [webtest]> show databases;
 +--------------------+
 | Database           |
 +--------------------+
@@ -111,14 +105,14 @@ Welcome to the MariaDB monitor.
 +--------------------+
 5 rows in set (0.00 sec)
 
-**MySQL [webtest]> show tables;**
+MySQL [webtest]> show tables;
 Empty set (0.00 sec)
 ```
 
 ### table 생성하기
   
 ```bash
-**[ec2-user@퍼블릭IP주소 ~]$ sudo yum install git**
+[ec2-user@퍼블릭IP주소 ~]$ sudo yum install git
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 Resolving Dependencies
 
@@ -132,33 +126,33 @@ Dependency Installed:
 
 Complete!
 
-**[ec2-user@퍼블릭IP주소 ~]$ git clone https://github.com/uvelyster/cloud-demo.git**
+[ec2-user@퍼블릭IP주소 ~]$ git clone https://github.com/uvelyster/cloud-demo.git
 Cloning into 'cloud-demo'...
 ...[생략]...
 
-**[ec2-user@퍼블릭IP주소 ~]$ ls**
+[ec2-user@퍼블릭IP주소 ~]$ ls
 cloud-demo
 ```
  
 ```bash
-**[ec2-user@퍼블릭IP주소 ~]$ cd cloud-demo/
-[ec2-user@퍼블릭IP주소 cloud-demo]$ ls**
+[ec2-user@퍼블릭IP주소 ~]$ cd cloud-demo/
+[ec2-user@퍼블릭IP주소 cloud-demo]$ ls
 create_db_webtest.sql  create.php  Dockerfile  index.php  process_create.php  webserver.sh
-**[ec2-user@퍼블릭IP주소 cloud-demo]$ vi create_db_webtest.sql
-[ec2-user@퍼블릭IP주소 cloud-demo]$ cat create_db_webtest.sql**
+[ec2-user@퍼블릭IP주소 cloud-demo]$ vi create_db_webtest.sql
+[ec2-user@퍼블릭IP주소 cloud-demo]$ cat create_db_webtest.sql
 create table items ( id int(11) not null auto_increment, title varchar(45) not null, description text, created datetime not null, primary key(id) );
 ```
  
 ```bash
-**[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_db_webtest.sql
-[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest**
+[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_db_webtest.sql
+[ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
 Welcome to the MariaDB monitor.
 ...[생략]...
 
-**MySQL [webtest]> show tables;**
+MySQL [webtest]> show tables;
 +-------------------+
 | Tables_in_webtest |
 +-------------------+
@@ -166,7 +160,7 @@ Welcome to the MariaDB monitor.
 +-------------------+
 1 row in set (0.00 sec)
 
-**MySQL [webtest]> select * from items;**
+MySQL [webtest]> select * from items;
 Empty set (0.00 sec)
 ```
 
