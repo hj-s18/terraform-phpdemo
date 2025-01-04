@@ -40,4 +40,31 @@
     ...[생략]...
     ```
 
-3. 콘솔에서 인스턴스 중지 후 이미지로 만들기
+3. 콘솔에서 인스턴스 중지 후 이미지로 만들기 → 이 이미지 사용해서 EC2 인스턴스 생성하고, RDS와 연결할 것임!
+
+<br>
+
+### Terraform 코드 만들기
+db.tf, main.tf, provider.tf, user-data.sh 파일 생성
+
+<br>
+
+### terraform apply
+
+```bash
+[devops@ansible-controller phpdemo]$ tfa
+
+...[생략]...
+
+Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+
+Outputs:
+
+address = "terraform-mysql[생략].us-east-2.rds.amazonaws.com"
+endpoint = "terraform-mysql[생략].us-east-2.rds.amazonaws.com:3306"
+port = 3306
+testip = "3.141.12.192"
+```
+
+### 웹페이지 잘 뜸
+![image](https://github.com/user-attachments/assets/9a8180f5-25ce-4754-bffd-0b9548e18216)
