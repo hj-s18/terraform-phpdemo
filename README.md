@@ -1,6 +1,6 @@
 ### 콘솔에서 직접 EC2 인스턴스 만들기
 
-Amazon Linux2 AMI 사용하기
+Amazon Linux2 AMI 사용하기 <br>
 인바운드 규칙으로 22, 80 포트 열어주기
 
 <br>
