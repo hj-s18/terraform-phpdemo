@@ -25,9 +25,7 @@ If you ever set or change modules or backend configuration for Terraform,
 rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
-
  
-
 ```bash
 [devops@ansible-controller phpdemo]$ ls -al
 total 20
@@ -38,9 +36,7 @@ drwx------. 11 devops devops 4096 Jan  3 09:20 ..
 drwxr-xr-x.  3 devops devops   23 Jan  3 10:08 .terraform
 -rw-r--r--.  1 devops devops 1377 Jan  3 10:08 .terraform.lock.hcl
 ```
-
-<br>
-
+ 
 ```bash
 [devops@ansible-controller phpdemo]$ tfa
 
