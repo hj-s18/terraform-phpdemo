@@ -33,7 +33,7 @@ mysql -u<데이터베이스 사용자 이름> -p<데이터베이스 비밀번호
 
 ```bash
 [ec2-user@퍼블릭IP주소 cloud-demo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
-ERROR 2005 (HY000): Unknown MySQL server host '**<데이터베이스 엔드포인트>:3306**' (2)
+ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인트>:3306' (2)
 ```
 
 <br>
