@@ -1,15 +1,52 @@
-# 실전 테라폼 활용 실습
-1. 데이터베이스 올리기 (데이터베이스 구성 → 데이터베이스 올리기)
-2. 데이터 이전 (database migration)
-   직접 데이터 이전하는 과정 거쳐서 코드 작성하기
-   mysql -uUSER -pPASSWORD -hADDRESS (-PPORT) DB_NAME 
-   입력해서 mysql과 커넥션 잘 되면, 빠져나와서 
-   mysql -uUSER -pPASSWORD -hADDRESS (-PPORT) DB_NAME < createdb.sql
-   입력해서 item table 생성 후 다시 들어가서 테이블 잘 생성되었는지 확인하기
-   => 여기까지 코드로 작성, AWS 콘솔로 EC2 인스턴스 (이미지 Amazon Linux 2 AMI (HVM) - Kernel 5.10, SSD Volume Type 사용하기) 만든 후, mysql, git 설치 후 이미지로 만들기
-   => 다시 데이터베이스 올리기
-
-4. php 어플리케이션을 실행한다.
-5. 데이터를 Insert 한다.
-
-![image](https://github.com/user-attachments/assets/39f3500d-c492-49d4-880a-ca8dc25d0a57)
+### RDS 서비스로 데이터베이스 구성
+provider.tf, db.tf 작성하기
+<br>
+### **terraform init** → **terraform apply**
+    
+    ```bash
+    [devops@ansible-controller phpdemo]$ terraform init
+    Initializing the backend...
+    Initializing provider plugins...
+    - Finding latest version of hashicorp/aws...
+    - Installing hashicorp/aws v5.82.2...
+    - Installed hashicorp/aws v5.82.2 (signed by HashiCorp)
+    Terraform has created a lock file .terraform.lock.hcl to record the provider
+    selections it made above. Include this file in your version control repository
+    so that Terraform can guarantee to make the same selections by default when
+    you run "terraform init" in the future.
+    
+    Terraform has been successfully initialized!
+    
+    You may now begin working with Terraform. Try running "terraform plan" to see
+    any changes that are required for your infrastructure. All Terraform commands
+    should now work.
+    
+    If you ever set or change modules or backend configuration for Terraform,
+    rerun this command to reinitialize your working directory. If you forget, other
+    commands will detect it and remind you to do so if necessary.
+    ```
+    
+    ```bash
+    [devops@ansible-controller phpdemo]$ ls -al
+    total 20
+    drwxr-xr-x.  3 devops devops   98 Jan  3 10:08 .
+    drwx------. 11 devops devops 4096 Jan  3 09:20 ..
+    -rw-r--r--.  1 devops devops 1140 Jan  3 10:05 db.tf
+    -rw-r--r--.  1 devops devops   18 Jan  3 10:04 provider.tf
+    drwxr-xr-x.  3 devops devops   23 Jan  3 10:08 .terraform
+    -rw-r--r--.  1 devops devops 1377 Jan  3 10:08 .terraform.lock.hcl
+    ```
+    
+    ```bash
+    [devops@ansible-controller phpdemo]$ tfa
+    
+    ...[생략]...
+    
+    Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+    
+    Outputs:
+    
+    address = "terraform-mysql[생략].us-east-2.rds.amazonaws.com"
+    endpoint = "terraform-mysql[생략].us-east-2.rds.amazonaws.com:3306"
+    port = 3306
+    ```
