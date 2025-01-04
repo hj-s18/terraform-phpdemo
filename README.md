@@ -12,12 +12,12 @@ Amazon Linux2 AMI 사용하기 <br>
 ### MySQL 설치
 
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ sudo yum update
+[ec2-user@프라이빗IP ~]$ sudo yum update
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 amzn2-core                                                                               | 3.6 kB  00:00:00
 No packages marked for update
 
-[ec2-user@퍼블릭IP주소 ~]$ sudo yum install mysql
+[ec2-user@프라이빗IP ~]$ sudo yum install mysql
 ...[생략]...
 Installed:
   mariadb.x86_64 1:5.5.68-1.amzn2.0.1
@@ -32,7 +32,7 @@ Complete!
 mysql -u<데이터베이스 사용자 이름> -p<데이터베이스 비밀번호> -h<데이터베이스 엔드포인트> -P<포트> <데이터베이스 이름>
 
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
+[ec2-user@프라이빗IP ~]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인트>:3306' (2)
 ```
 
@@ -56,7 +56,7 @@ Amazon Linux 추가 패키지 관리 도구 사용해서 Amazon Linux 2 에서 �
 EPEL 패키지 직접 설치해도 됨 : **yum install epel-release -y**
 
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ sudo amazon-linux-extras install epel
+[ec2-user@프라이빗IP ~]$ sudo amazon-linux-extras install epel
 Installing epel-release
 ...[생략]...
 Installed:
@@ -71,7 +71,7 @@ Complete!
 ### RDS로 접속 시도 → 실패
 
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
+[ec2-user@프라이빗IP ~]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인트>:3306' (2)
 ```
 
@@ -88,7 +88,7 @@ ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인�
 ### RDS로 접속 → webtest 라는 데이터베이스 생성되어있는 것 확인
  
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
+[ec2-user@프라이빗IP ~]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 Welcome to the MariaDB monitor.
 ...[생략]...
 
@@ -116,7 +116,7 @@ Empty set (0.00 sec)
 
   
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ sudo yum install git
+[ec2-user@프라이빗IP ~]$ sudo yum install git
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 Resolving Dependencies
 
@@ -132,30 +132,30 @@ Complete!
 ```
 
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ git clone -b create-table https://github.com/hj-s18/phpdemo.git
+[ec2-user@프라이빗IP ~]$ git clone -b create-table https://github.com/hj-s18/phpdemo.git
 Cloning into 'phpdemo'...
 ...[생략]...
 
-[ec2-user@퍼블릭IP주소 ~]$ ls
+[ec2-user@프라이빗IP ~]$ ls
 phpdemo
 ```
  
 ```bash
-[ec2-user@퍼블릭IP주소 ~]$ cd phpdemo/
+[ec2-user@프라이빗IP ~]$ cd phpdemo/
 
-[ec2-user@퍼블릭IP주소 phpdemo]$ ls
+[ec2-user@프라이빗IP phpdemo]$ ls
 create_db_webtest.sql
 
-[ec2-user@퍼블릭IP주소 phpdemo]$ cat create_db_webtest.sql
+[ec2-user@프라이빗IP phpdemo]$ cat create_db_webtest.sql
 create table items ( id int(11) not null auto_increment, title varchar(45) not null, description text, created datetime not null, primary key(id) );
 ```
  
 ```bash
-[ec2-user@퍼블릭IP주소 phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_db_webtest.sql
+[ec2-user@프라이빗IP phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_db_webtest.sql
 ```
  
 ```
-[ec2-user@퍼블릭IP주소 phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
+[ec2-user@프라이빗IP phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
