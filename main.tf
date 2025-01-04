@@ -45,6 +45,10 @@ resource "aws_security_group" "instance" {                          # VPC의 보
 
 }
 
+
+
+
+
 output "testip" {                                                   # EC2 인스턴스의 Public IP 출력
   value       = aws_instance.phpapp.public_ip                       # 생성된 EC2 인스턴스의 Public IP 주소 반환
   description = "aws instance IP"                                   # 설명 : aws 인스턴스 IP
