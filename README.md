@@ -26,7 +26,7 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-<br>
+ 
 
 ```bash
 [devops@ansible-controller phpdemo]$ ls -al
