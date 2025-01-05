@@ -102,6 +102,10 @@ Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned d
  
 <br>
  
+# 만든 이미지 사용해서 EC2 인스턴스와 RDS 인스턴스 연결하기
+ 
+<br>
+ 
 ### process_create.php 파일 수정해서 사용하자.
 
 ```bash
@@ -122,9 +126,7 @@ echo 'Succeed. <a href="index.php"> back</a>';
 
 <br>
  
-##### 참고 : 변수 바꾸기
-
-**sed 's/DB IP/${db_url}/g' process_create.php**
+##### 참고 : 변수 바꾸기 : sed 's/DB IP/${db_url}/g' process_create.php
 
 ```bash
 [ec2-user@ip-172-31-21-7 cloud-demo]$ cat process_create.php
@@ -165,7 +167,7 @@ echo 'Succeed. <a href="index.php"> back</a>';
 db.tf, main.tf, provider.tf, user-data.sh 코드 수정하기
  
 ```bash
-**[devops@ansible-controller phpdemo]$ ls**
+[devops@ansible-controller phpdemo]$ ls
 db.tf  main.tf  provider.tf  terraform.tfstate  terraform.tfstate.backup  user-data.sh
 ```
 
