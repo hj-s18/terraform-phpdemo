@@ -1,82 +1,260 @@
-### 콘솔에서 EC2 인스턴스 만들어서 mysql, git pkg 설치 후 이미지로 만들기
-
-1. 콘솔에서 Amazon Linux 2 AMI 이미지 사용하여 인스턴스 생성
-
-2. MobaXterm 으로 접속해서 mysql, git 설치
-
-    ```bash
-    [ec2-user@프라이빗IP ~]$ sudo yum install git
-    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
-    ...[생략]...
-    Installed:
-      git.x86_64 0:2.40.1-1.amzn2.0.3
-    
-    Dependency Installed:
-      git-core.x86_64 0:2.40.1-1.amzn2.0.3    git-core-doc.noarch 0:2.40.1-1.amzn2.0.3    perl-Error.noarch 1:0.17020-2.amzn2    perl-Git.noarch 0:2.40.1-1.amzn2.0.3    perl-TermReadKey.x86_64 0:2.30-20.amzn2.0.2
-    
-    Complete!
-    ```
-    
-    ```bash
-    [ec2-user@프라이빗IP ~]$ sudo yum install mysql
-    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
-    ...[생략]...
-    Installed:
-      mariadb.x86_64 1:5.5.68-1.amzn2.0.1
-    
-    Complete!
-    ```
-    
-    ```bash
-    [ec2-user@프라이빗IP ~]$ sudo amazon-linux-extras install epel
-    Installing epel-release
-    Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
-    ...[생략]...
-    Installed:
-      epel-release.noarch 0:7-11
-    
-    Complete!
-    
-    ...[생략]...
-    ```
-
-3. 콘솔에서 인스턴스 중지 후 이미지로 만들기 → 이 이미지 사용해서 EC2 인스턴스 생성하고, RDS와 연결할 것임!
+# php 어플리케이션 실행하기 해보기
 
 <br>
 
-### Terraform 코드 만들기
-db.tf, main.tf, provider.tf, user-data.sh 파일 생성
-
-<br>
-
-### terraform apply
+### 앞서 테스트용으로 사용했던 EC2 인스턴스(2.Test-EC2-instance)에 php 어플리케이션 실행에 필요한 도구들 설치해주기
 
 ```bash
-[devops@ansible-controller phpdemo]$ terraform apply -auto-approve
+[ec2-user@프라이빗IP ~]$ vi webserver.sh
+[ec2-user@프라이빗IP ~]$ cat webserver.sh
+#! /bin/bash
+
+curl -O http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo rpm -Uvh remi-release-7.rpm
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --enable remi-php72
+sudo yum install -y php php-common php-mysqli
+
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+[ec2-user@프라이빗IP ~]$ sh webserver.sh
 
 ...[생략]...
 
-Apply complete! Resources: 1 added, 0 changed, 1 destroyed.
+Installed:
+  php.x86_64 0:5.4.16-46.amzn2.0.5                                  php-common.x86_64 0:5.4.16-46.amzn2.0.5                                  php-mysqlnd.x86_64 0:5.4.16-46.amzn2.0.5
+
+Dependency Installed:
+  apr.x86_64 0:1.7.2-1.amzn2.0.1                apr-util.x86_64 0:1.6.3-1.amzn2.0.1                      apr-util-bdb.x86_64 0:1.6.3-1.amzn2.0.1             generic-logos-httpd.noarch 0:18.0.0-4.amzn2
+  httpd.x86_64 0:2.4.62-1.amzn2.0.2             httpd-filesystem.noarch 0:2.4.62-1.amzn2.0.2             httpd-tools.x86_64 0:2.4.62-1.amzn2.0.2             libzip010-compat.x86_64 0:0.10.1-9.amzn2.0.5
+  mailcap.noarch 0:2.1.41-2.amzn2               mod_http2.x86_64 0:1.15.19-1.amzn2.0.2                   php-cli.x86_64 0:5.4.16-46.amzn2.0.5                php-pdo.x86_64 0:5.4.16-46.amzn2.0.5
+
+Complete!
+```
+
+<br>
+ 
+# 콘솔에서 이미지 생성하기
+ 
+<br>
+ 
+### 콘솔에서 EC2 인스턴스 만들기
+
+1. 콘솔에서 Amazon Linux 2 AMI 이미지 사용하여 인스턴스 생성
+2. MobaXterm 으로 접속해서 필요한 도구들 설치
+3. 콘솔에서 인스턴스 중지 후 이미지로 만들기
+ 
+ <br>
+ 
+##### 필요한 도구들 설치
+
+```bash
+sudo amazon-linux-extras install epel -y
+sudo yum install -y mysql git yum-utils
+
+curl -O http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo rpm -Uvh remi-release-7.rpm
+sudo yum-config-manager --enable remi-php72
+sudo yum install -y php php-common php-mysqli
+
+sudo systemctl start httpd
+sudo systemctl enable httpd
+```
+
+<br>
+ 
+##### 참고
+
+```bash
+sudo yum install git
+sudo yum install mysql
+sudo amazon-linux-extras install epel
+
+curl -O http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo rpm -Uvh remi-release-7.rpm
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --enable remi-php72
+sudo yum install -y php php-common php-mysqli
+
+sudo systemctl start httpd
+sudo systemctl enable httpd
+```
+
+<br>
+ 
+##### 참고 : 캐시 날리는 코드 마지막에 해주면 좋음
+
+**sudo yum clean all**
+
+```bash
+[ec2-user@프라이빗IP ~]$ sudo yum clean all
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+Cleaning repos: amzn2-core amzn2extra-docker amzn2extra-epel amzn2extra-kernel-5.10 epel remi-php72 remi-safe
+Cleaning up everything
+Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned data from disabled or removed repos
+```
+
+<br>
+ 
+### 콘솔에서 만든 이미지 ID 확인하기
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/dca3a68b-890d-47b1-b4a2-231dfa78d194/19139f43-76d0-4045-8aba-c35a2cedd486.png)
+
+<br>
+ 
+### process_create.php 파일 수정해서 사용하자.
+
+```bash
+[ec2-user@프라이빗IP phpdemo]$ cat process_create.php
+<?php
+
+$conn = mysqli_connect("DB_IP","root","Test123!","webtest",3306);
+
+$sql = "insert into items (title, description, created) value ('{$_POST['title']}','{$_POST['description']}', now())";
+
+mysqli_query($conn,$sql);
+if ($result=== false){
+    echo 'error occured.';
+    error_log(mysqli_error($conn));
+}
+echo 'Succeed. <a href="index.php"> back</a>';
+```
+
+<br>
+ 
+##### 참고 : 변수 바꾸기
+
+**sed 's/DB IP/${db_url}/g' process_create.php**
+
+```bash
+[ec2-user@ip-172-31-21-7 cloud-demo]$ cat process_create.php
+<?php
+
+$conn = mysqli_connect("DB_IP","root","Test123!","webtest",3306);
+
+$sql = "insert into items (title, description, created) value ('{$_POST['title']}','{$_POST['description']}', now())";
+
+mysqli_query($conn,$sql);
+if ($result=== false){
+    echo 'error occured.';
+    error_log(mysqli_error($conn));
+}
+echo 'Succeed. <a href="index.php"> back</a>';
+
+[ec2-user@ip-172-31-21-7 cloud-demo]$ sed 's/DB_IP/${db_url}/g' process_create.php
+<?php
+
+$conn = mysqli_connect("${db_url}","root","Test123!","webtest",3306);
+
+$sql = "insert into items (title, description, created) value ('{$_POST['title']}','{$_POST['description']}', now())";
+
+mysqli_query($conn,$sql);
+if ($result=== false){
+    echo 'error occured.';
+    error_log(mysqli_error($conn));
+}
+echo 'Succeed. <a href="index.php"> back</a>';
+
+?>
+```
+
+<br>
+ 
+### 파일들 수정해주기
+ 
+db.tf, main.tf, provider.tf, user-data.sh 코드 수정하기
+ 
+```bash
+**[devops@ansible-controller phpdemo]$ ls**
+db.tf  main.tf  provider.tf  terraform.tfstate  terraform.tfstate.backup  user-data.sh
+```
+
+<br>
+ 
+### 코드 : terraform apply -auto-approve
+
+```bash
+[devops@ansible-controller phpdemo]$ tfa
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_db_instance.phpdb will be created
+  + resource "aws_db_instance" "phpdb" {
+			...[생략]...
+    }
+
+  # aws_instance.phpapp will be created
+  + resource "aws_instance" "phpapp" {
+			...[생략]...
+    }
+
+  # aws_security_group.db will be created
+  + resource "aws_security_group" "db" {
+      ...[생략]...
+    }
+
+  # aws_security_group.instance will be created
+  + resource "aws_security_group" "instance" {
+      ...[생략]...
+    }
+
+Plan: 4 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + address  = (known after apply)
+  + endpoint = (known after apply)
+  + port     = (known after apply)
+  + testip   = (known after apply)
+aws_security_group.instance: Creating...
+aws_security_group.instance: Creation complete after 4s [id=sg-02b57b2119d117637]
+aws_security_group.db: Creating...
+aws_security_group.db: Creation complete after 4s [id=sg-0f19df8f20deeacd3]
+aws_db_instance.phpdb: Creating...
+aws_db_instance.phpdb: Creation complete after 3m17s [id=db-5YVPEAU2P7RPKJWC4YXWBW3IPQ]
+aws_instance.phpapp: Creating...
+aws_instance.phpapp: Creation complete after 15s [id=i-0c54cd758cb3dad77]
+
+Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
 
 Outputs:
 
 address = "terraform-mysql[생략].us-east-2.rds.amazonaws.com"
 endpoint = "terraform-mysql[생략].us-east-2.rds.amazonaws.com:3306"
 port = 3306
-testip = "생성된_EC2_인스턴스의_퍼블릭_IP"
+testip = "퍼블릭 IP 주소"
 ```
 
 <br>
-
-### 생성된 EC2 인스턴스로 접속해서 table 잘 만들어졌는지 확인하기
  
+### 웹페이지 잘 뜸
+
+![1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/e83a325f-7839-4537-8e36-a2eed56a2b59/1.png)
+
+<br>
+ 
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/25aeea9e-ccc7-4b92-a085-3bd11c2efacc/15d33b0c-7189-4e94-862a-a101ae88f2c4.png)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/a88a4138-83fc-48ec-84e8-61f6dd1a055b/4f0f7e04-e9fc-4f90-901d-686e2a92f06b.png)
+
+![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/4d30dfa2-ed0d-4e20-822e-ce24c0f24750/cae8d749-c96e-4249-88f1-ed84f09f344c.png)
+
+<br>
+ 
+### db 잘 들어간 것 확인하는 코드
+
 ```bash
 Authenticating with public key "Imported-Openssh-Key"
     ┌──────────────────────────────────────────────────────────────────────┐
     │                 • MobaXterm Personal Edition v24.3 •                 │
     │               (SSH client, X server and network tools)               │
     │                                                                      │
-    │ ⮞ SSH session to ec2-user@생성된_인스턴스의_퍼블릭IP                 │
+    │ ⮞ SSH session to ec2-user@퍼블릭 IP 주소                             │
     │   • Direct SSH      :  ✓                                             │
     │   • SSH compression :  ✓                                             │
     │   • SSH-browser     :  ✓                                             │
@@ -96,10 +274,14 @@ MySQL [webtest]> show tables;
 +-------------------+
 | items             |
 +-------------------+
-1 row in set (0.01 sec)
+1 row in set (0.00 sec)
+
+MySQL [webtest]> select * from items;
++----+----------+-------------+---------------------+
+| id | title    | description | created             |
++----+----------+-------------+---------------------+
+|  1 | test1234 | test4567    | 2025-01-03 07:25:29 |
++----+----------+-------------+---------------------+
+1 row in set (0.00 sec)
 ```
  
-<br>
-
-### 웹페이지는 아직 Apache 기본 페이지 뜸
-![image](https://github.com/user-attachments/assets/9a8180f5-25ce-4754-bffd-0b9548e18216)
