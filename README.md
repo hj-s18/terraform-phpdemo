@@ -5,4 +5,5 @@
 4.0 php 어플리케이션 추가하기 <br>
 gitclone : 테라폼 코드로 EC2 인스턴스 생성하면서 사용할 코드들 <br>
 
-![image](https://github.com/user-attachments/assets/39f3500d-c492-49d4-880a-ca8dc25d0a57)
+![image](https://github.com/user-attachments/assets/e3b12c39-1f67-4f84-9666-adcc03e32b32)
+
