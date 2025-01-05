@@ -101,11 +101,14 @@ MySQL [webtest]> show tables;
 Empty set (0.00 sec)
 ```
 
+![image](https://github.com/user-attachments/assets/9cee79a6-0c37-4e10-b4bd-6408cac61385)
+
+
 <br>
 
 ### table 생성하기
 
-![image](https://github.com/user-attachments/assets/aca26b9b-f11a-48f8-892b-88a04a50e8fc)
+![image](https://github.com/user-attachments/assets/6c203045-bb80-4a64-8113-fea36b1a1fc9)
 
   
 ```bash
