@@ -16,7 +16,7 @@ Amazon Linux2 AMI 사용하기 <br>
 ```bash
 [ec2-user@프라이빗IP ~]$ sudo yum update
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
-amzn2-core                                                                               | 3.6 kB  00:00:00
+amzn2-core                                                                                                    | 3.6 kB  00:00:00
 No packages marked for update
 
 [ec2-user@프라이빗IP ~]$ sudo yum install mysql
@@ -67,18 +67,9 @@ ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인�
 [devops@ansible-controller phpdemo]$ terraform output address
 "terraform-mysql20250103011832219800000001.c0k8gjmf4fb9.us-east-2.rds.amazonaws.com"
 ```
-
+ 
 <br>
  
-### RDS로 접속 시도 → 실패
-
-```bash
-[ec2-user@프라이빗IP ~]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
-ERROR 2005 (HY000): Unknown MySQL server host '<데이터베이스 엔드포인트>:3306' (2)
-```
-
-<br>
-
 ### database 보안그룹에 인스턴스에서 들어오는 트래픽 허용해주기
  
 콘솔에서 새로운 보안그룹 생성 후 RDS에 추가하기 <br>
@@ -144,14 +135,14 @@ phpdemo
 [ec2-user@프라이빗IP ~]$ cd phpdemo/
 
 [ec2-user@프라이빗IP phpdemo]$ ls
-create_db_webtest.sql
+create_table_item.sql
 
-[ec2-user@프라이빗IP phpdemo]$ cat create_db_webtest.sql
+[ec2-user@프라이빗IP phpdemo]$ cat create_table_item.sql
 create table items ( id int(11) not null auto_increment, title varchar(45) not null, description text, created datetime not null, primary key(id) );
 ```
  
 ```bash
-[ec2-user@프라이빗IP phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_db_webtest.sql
+[ec2-user@프라이빗IP phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_table_item.sql
 ```
  
 ```
