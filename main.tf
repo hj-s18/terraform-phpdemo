@@ -1,5 +1,5 @@
 resource "aws_instance" "phpapp" {
-  ami                    = "ami-0d8775cee2aefefb6"
+  ami                    = "ami-043d6febda24ff99b"
   instance_type          = "t3.micro"
   vpc_security_group_ids = [aws_security_group.instance.id]
   key_name               = "testweb"
