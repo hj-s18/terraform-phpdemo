@@ -1,3 +1,3 @@
 #!/bin/bash
-git clone -b terraform https://github.com/uvelyster/cloud-demo.git
-mysql -u${db_username} -p${db_password} -h${db_url} ${db_name} < /cloud-demo/create_db_webtest.sql
+git clone -b create-table https://github.com/hj-s18/phpdemo.git
+mysql -u${db_username} -p${db_password} -h${db_url} ${db_name} < /phpdemo/create_table_items.sql
