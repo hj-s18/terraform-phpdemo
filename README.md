@@ -52,7 +52,7 @@ db.tf, main.tf, provider.tf, user-data.sh 파일 생성
 ### terraform apply
 
 ```bash
-[devops@ansible-controller phpdemo]$ tfa
+[devops@ansible-controller phpdemo]$ terraform apply -auto-approve
 
 ...[생략]...
 
