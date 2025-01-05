@@ -134,28 +134,28 @@ Complete!
 ```
 
 ```bash
-[ec2-user@프라이빗IP ~]$ git clone -b gitclone https://github.com/hj-s18/terraform-practice.git
-Cloning into 'terraform-practice'...
+[ec2-user@프라이빗IP ~]$ git clone -b gitclone https://github.com/hj-s18/terraform-phpdemo.git
+Cloning into 'terraform-phpdemo'...
 ...[생략]...
 
 [ec2-user@프라이빗IP ~]$ ls
-terraform-practice
+terraform-phpdemo
 
-[ec2-user@프라이빗IP ~]$ cd terraform-practice/
+[ec2-user@프라이빗IP ~]$ cd terraform-phpdemo/
 
-[ec2-user@프라이빗IP terraform-practice]$ ls
+[ec2-user@프라이빗IP terraform-phpdemo]$ ls
 create_table_items.sql
 
-[ec2-user@프라이빗IP terraform-practice]$ cat create_table_items.sql
+[ec2-user@프라이빗IP terraform-phpdemo]$ cat create_table_items.sql
 create table items ( id int(11) not null auto_increment, title varchar(45) not null, description text, created datetime not null, primary key(id) );
 ```
  
 ```bash
-[ec2-user@프라이빗IP terraform-practice]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_table_items.sql
+[ec2-user@프라이빗IP terraform-phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_table_items.sql
 ```
  
 ```
-[ec2-user@프라이빗IP terraform-practice]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
+[ec2-user@프라이빗IP terraform-phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
 
