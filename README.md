@@ -87,7 +87,7 @@ Authenticating with public key "Imported-Openssh-Key"
 
 [ec2-user@프라이빗IP ~]$ cd /
 [ec2-user@프라이빗IP /]$ ls
-bin  boot  phpdemo  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
+bin  boot  terraform-practice  dev  etc  home  lib  lib64  local  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var
 [ec2-user@프라이빗IP /]$ mysql -utestuser -ptestpass -hterraform-mysql[생략].us-east-2.rds.amazonaws.com webtest
 
 MySQL [webtest]> show tables;
