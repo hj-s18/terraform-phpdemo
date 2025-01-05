@@ -145,7 +145,9 @@ if ($result=== false){
     error_log(mysqli_error($conn));
 }
 echo 'Succeed. <a href="index.php"> back</a>';
+```
 
+```bash
 [ec2-user@ip-172-31-21-7 cloud-demo]$ sed 's/DB_IP/${db_url}/g' process_create.php
 <?php
 
