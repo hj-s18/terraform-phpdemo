@@ -1,3 +1,9 @@
+# 콘솔에서 직접 EC2 인스턴스 만들고, RDS와 연결해보기
+
+![image](https://github.com/user-attachments/assets/9cee79a6-0c37-4e10-b4bd-6408cac61385)
+ 
+<br>
+ 
 ### 콘솔에서 직접 EC2 인스턴스 만들기
 
 Amazon Linux2 AMI 사용하기 <br>
@@ -100,10 +106,7 @@ MySQL [webtest]> show databases;
 MySQL [webtest]> show tables;
 Empty set (0.00 sec)
 ```
-
-![image](https://github.com/user-attachments/assets/9cee79a6-0c37-4e10-b4bd-6408cac61385)
-
-
+ 
 <br>
 
 ### table 생성하기
