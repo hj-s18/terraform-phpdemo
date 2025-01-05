@@ -1,6 +1,7 @@
 resource "aws_db_instance" "phpdb" {
   identifier_prefix      = "terraform-mysql"
   engine                 = "mysql"
+  engine_version         = "5.7"
   allocated_storage      = 10
   instance_class         = "db.t3.micro"
   skip_final_snapshot    = true
