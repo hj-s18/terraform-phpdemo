@@ -35,6 +35,7 @@ Complete!
 ```
 
 <br>
+<br>
  
 # 콘솔에서 이미지 생성하기
  
@@ -100,6 +101,7 @@ Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned d
 ### 콘솔에서 만든 이미지 ID 확인하기
 ![image](https://github.com/user-attachments/assets/a17f4873-742e-4f34-877b-b8c9e6017097)
  
+<br>
 <br>
  
 # 만든 이미지 사용해서 EC2 인스턴스와 RDS 인스턴스 연결하기
@@ -233,6 +235,11 @@ testip = "퍼블릭 IP 주소"
  
 ### 웹페이지 잘 뜸
 ![image](https://github.com/user-attachments/assets/4fcebda5-c592-4818-beca-abedff6eef15)
+ 
+<br>
+<br>
+ 
+# 잘 작동하는지 확인하기
  
 <br>
 
