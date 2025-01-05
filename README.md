@@ -99,9 +99,8 @@ Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned d
 <br>
  
 ### 콘솔에서 만든 이미지 ID 확인하기
-
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/dca3a68b-890d-47b1-b4a2-231dfa78d194/19139f43-76d0-4045-8aba-c35a2cedd486.png)
-
+![image](https://github.com/user-attachments/assets/a17f4873-742e-4f34-877b-b8c9e6017097)
+ 
 <br>
  
 ### process_create.php 파일 수정해서 사용하자.
@@ -232,20 +231,19 @@ testip = "퍼블릭 IP 주소"
 <br>
  
 ### 웹페이지 잘 뜸
-
-![1.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/e83a325f-7839-4537-8e36-a2eed56a2b59/1.png)
-
+![image](https://github.com/user-attachments/assets/4fcebda5-c592-4818-beca-abedff6eef15)
+ 
 <br>
  
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/25aeea9e-ccc7-4b92-a085-3bd11c2efacc/15d33b0c-7189-4e94-862a-a101ae88f2c4.png)
+![image](https://github.com/user-attachments/assets/371d13f6-79fd-48d4-a263-1299979732a8)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/a88a4138-83fc-48ec-84e8-61f6dd1a055b/4f0f7e04-e9fc-4f90-901d-686e2a92f06b.png)
+![image](https://github.com/user-attachments/assets/6e7b7eec-0506-4ec8-a3a1-198320e6a292)
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/afbd574c-5447-4272-8c01-ede4b0abb9bc/4d30dfa2-ed0d-4e20-822e-ce24c0f24750/cae8d749-c96e-4249-88f1-ed84f09f344c.png)
-
+![image](https://github.com/user-attachments/assets/d82e7363-6b58-4656-8e9b-29e71e68f489)
+ 
 <br>
  
-### db 잘 들어간 것 확인하는 코드
+### db 잘 들어간 것 확인
 
 ```bash
 Authenticating with public key "Imported-Openssh-Key"
