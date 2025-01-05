@@ -176,10 +176,10 @@ db.tf  main.tf  provider.tf  terraform.tfstate  terraform.tfstate.backup  user-d
 
 <br>
  
-### 코드 : terraform apply -auto-approve
+### terraform apply -auto-approve
 
 ```bash
-[devops@ansible-controller phpdemo]$ tfa
+[devops@ansible-controller phpdemo]$ terraform apply -auto-approve
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
   + create
