@@ -129,7 +129,7 @@ echo 'Succeed. <a href="index.php"> back</a>';
 
 <br>
  
-##### 참고 : 변수 바꾸기 : sed 's/DB IP/${db_url}/g' process_create.php
+##### 참고 : 변수 바꾸기 : sed 's/DB_IP/${db_url}/g' process_create.php
 
 ```bash
 [ec2-user@ip-172-31-21-7 cloud-demo]$ cat process_create.php
