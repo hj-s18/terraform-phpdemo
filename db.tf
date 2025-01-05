@@ -64,4 +64,3 @@ output "endpoint" {
   value       = aws_db_instance.phpdb.endpoint
   description = "The endpoint of database"
 }
-# address:port -> endpoint
