@@ -1,6 +1,6 @@
-# user-data.sh 파일 수정
+# user-data.sh, /phpdemo/process_create.php 파일 수정
 
-## 1
+### 1
 
 ##### user-data.sh
 
@@ -47,7 +47,7 @@ echo 'Succeed. <a href="index.php"> back</a>';
  <br>
  <br>
  
-## 2
+### 2
 
 ##### user-data.sh
 
@@ -89,7 +89,7 @@ echo 'Succeed. <a href="index.php"> back</a>';
  <br>
  <br>
  
-## 3
+### 3
 
 ##### user-data.sh
 
