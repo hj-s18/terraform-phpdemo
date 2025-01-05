@@ -125,7 +125,7 @@ Complete!
 ```
 
 ```bash
-[ec2-user@프라이빗IP ~]$ git clone -b create-table https://github.com/hj-s18/phpdemo.git
+[ec2-user@프라이빗IP ~]$ git clone -b gitclone https://github.com/hj-s18/phpdemo.git
 Cloning into 'phpdemo'...
 ...[생략]...
 
