@@ -2,7 +2,7 @@
 
 <br>
 
-### 앞서 테스트용으로 사용했던 EC2 인스턴스(2.Test-EC2-instance)에 php 어플리케이션 실행에 필요한 도구들 설치해주기
+### 앞서 테스트용으로 사용했던 EC2 인스턴스(2.Test-EC2-instance)에 php 어플리케이션 실행에 필요한 도구들 추가로 설치해주기
 
 ```bash
 [ec2-user@프라이빗IP ~]$ vi webserver.sh
