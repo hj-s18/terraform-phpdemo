@@ -109,22 +109,13 @@ Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned d
  
 <br>
  
-### process_create.php 파일 수정해서 사용하자.
-
+### 파일들 수정해주기
+ 
+db.tf, main.tf, provider.tf, user-data.sh 코드 수정하기
+ 
 ```bash
-[ec2-user@프라이빗IP phpdemo]$ cat process_create.php
-<?php
-
-$conn = mysqli_connect("DB_IP","USERNAME","PASSWORD","DBNAME",3306);
-
-$sql = "insert into items (title, description, created) value ('{$_POST['title']}','{$_POST['description']}', now())";
-
-mysqli_query($conn,$sql);
-if ($result=== false){
-    echo 'error occured.';
-    error_log(mysqli_error($conn));
-}
-echo 'Succeed. <a href="index.php"> back</a>';
+[devops@ansible-controller phpdemo]$ ls
+db.tf  main.tf  provider.tf  terraform.tfstate  terraform.tfstate.backup  user-data.sh
 ```
 
 <br>
@@ -163,17 +154,6 @@ if ($result=== false){
 echo 'Succeed. <a href="index.php"> back</a>';
 
 ?>
-```
-
-<br>
- 
-### 파일들 수정해주기
- 
-db.tf, main.tf, provider.tf, user-data.sh 코드 수정하기
- 
-```bash
-[devops@ansible-controller phpdemo]$ ls
-db.tf  main.tf  provider.tf  terraform.tfstate  terraform.tfstate.backup  user-data.sh
 ```
 
 <br>
