@@ -30,6 +30,8 @@ cp /phpdemo/*.php /var/www/html                                                 
 
 
 
+
+
 :<<'END'
 # /phpdemo/process_create.php 파일
 
