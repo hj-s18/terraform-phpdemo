@@ -65,7 +65,7 @@ sudo systemctl enable httpd
 
 <br>
  
-##### 참고
+##### 참고 : 필요한 도구들 설치하는 코드들 풀어쓴 것
 
 ```bash
 sudo yum install git
@@ -86,7 +86,6 @@ sudo systemctl enable httpd
 <br>
  
 ##### 참고 : 캐시 날리는 코드 마지막에 해주면 좋음
-
 **sudo yum clean all**
 
 ```bash
