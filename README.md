@@ -234,6 +234,8 @@ testip = "퍼블릭 IP 주소"
 ![image](https://github.com/user-attachments/assets/4fcebda5-c592-4818-beca-abedff6eef15)
  
 <br>
+
+### db 넣기
  
 ![image](https://github.com/user-attachments/assets/371d13f6-79fd-48d4-a263-1299979732a8)
 
