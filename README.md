@@ -85,8 +85,7 @@ sudo systemctl enable httpd
 
 <br>
  
-##### 참고 : 캐시 날리는 코드 마지막에 해주면 좋음
-**sudo yum clean all**
+##### 참고 : 캐시 날리는 코드 마지막에 해주면 좋음 : sudo yum clean all
 
 ```bash
 [ec2-user@프라이빗IP ~]$ sudo yum clean all
@@ -109,7 +108,7 @@ Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned d
 [ec2-user@프라이빗IP phpdemo]$ cat process_create.php
 <?php
 
-$conn = mysqli_connect("DB_IP","root","Test123!","webtest",3306);
+$conn = mysqli_connect("DB_IP","USERNAME","PASSWORD","DBNAME",3306);
 
 $sql = "insert into items (title, description, created) value ('{$_POST['title']}','{$_POST['description']}', now())";
 
@@ -131,7 +130,7 @@ echo 'Succeed. <a href="index.php"> back</a>';
 [ec2-user@ip-172-31-21-7 cloud-demo]$ cat process_create.php
 <?php
 
-$conn = mysqli_connect("DB_IP","root","Test123!","webtest",3306);
+$conn = mysqli_connect("DB_IP","USERNAME","PASSWORD","DBNAME",3306);
 
 $sql = "insert into items (title, description, created) value ('{$_POST['title']}','{$_POST['description']}', now())";
 
@@ -145,7 +144,7 @@ echo 'Succeed. <a href="index.php"> back</a>';
 [ec2-user@ip-172-31-21-7 cloud-demo]$ sed 's/DB_IP/${db_url}/g' process_create.php
 <?php
 
-$conn = mysqli_connect("${db_url}","root","Test123!","webtest",3306);
+$conn = mysqli_connect("${db_url}","USERNAME","PASSWORD","DBNAME",3306);
 
 $sql = "insert into items (title, description, created) value ('{$_POST['title']}','{$_POST['description']}', now())";
 
