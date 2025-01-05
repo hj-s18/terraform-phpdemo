@@ -1,4 +1,4 @@
-# php 어플리케이션 실행하기 해보기
+# php 어플리케이션 실행하기
 
 <br>
 
@@ -38,7 +38,7 @@ Complete!
 <br>
 <br>
  
-# 콘솔에서 이미지 생성하기
+## 콘솔에서 이미지 생성하기
  
 <br>
  
@@ -105,7 +105,7 @@ Maybe you want: rm -rf /var/cache/yum, to also free up space taken by orphaned d
 <br>
 <br>
  
-# 만든 이미지 사용해서 EC2 인스턴스와 RDS 인스턴스 연결하기
+## 만든 이미지 사용해서 EC2 인스턴스와 RDS 인스턴스 연결하기
  
 <br>
  
@@ -240,7 +240,7 @@ testip = "퍼블릭 IP 주소"
 <br>
 <br>
  
-# 잘 작동하는지 확인하기
+## 잘 작동하는지 확인하기
  
 <br>
 
