@@ -135,14 +135,14 @@ phpdemo
 [ec2-user@프라이빗IP ~]$ cd phpdemo/
 
 [ec2-user@프라이빗IP phpdemo]$ ls
-create_table_item.sql
+create_table_items.sql
 
-[ec2-user@프라이빗IP phpdemo]$ cat create_table_item.sql
+[ec2-user@프라이빗IP phpdemo]$ cat create_table_items.sql
 create table items ( id int(11) not null auto_increment, title varchar(45) not null, description text, created datetime not null, primary key(id) );
 ```
  
 ```bash
-[ec2-user@프라이빗IP phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_table_item.sql
+[ec2-user@프라이빗IP phpdemo]$ mysql -utestuser -ptestpass -h<데이터베이스 엔드포인트> -P3306 webtest < create_table_items.sql
 ```
  
 ```
