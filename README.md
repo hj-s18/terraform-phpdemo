@@ -274,4 +274,7 @@ MySQL [webtest]> select * from items;
 +----+----------+-------------+---------------------+
 1 row in set (0.00 sec)
 ```
+
+# 참고 : httpd만 설치하고 php 따로 안 넣어주면 Apache 기본 페이지 뜸
  
+![image](https://github.com/user-attachments/assets/9a8180f5-25ce-4754-bffd-0b9548e18216)
