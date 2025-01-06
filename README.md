@@ -101,5 +101,7 @@ MySQL [webtest]> show tables;
  
 <br>
 
-### 웹페이지는 아직 Apache 기본 페이지 뜸
+### 웹페이지는 아직 안 뜸 
+내가 httpd 설치하고 확인했는지 Apache 기본 페이지 뜸
+ 
 ![image](https://github.com/user-attachments/assets/9a8180f5-25ce-4754-bffd-0b9548e18216)
